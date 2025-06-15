@@ -1,4 +1,3 @@
 # CV
 
-The goal is to make a website to use as a curriculum or as a portfolio
-
+This project is for rendering the CV, both as a pdf and as a web page.
