@@ -13,7 +13,7 @@ pages:
     - python -m src.renderer
     - rendercv render cv.yml
     - mkdir -p public
-    - cp rendercv_output/* public/
+    - cp -r rendercv_output/* public/
   
   artifacts:
     paths:
