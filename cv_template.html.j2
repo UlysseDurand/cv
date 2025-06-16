@@ -2,6 +2,11 @@
 
 <style>
 
+a {
+    color: #000050;
+    text-decoration: none;
+}
+
 .container {
     width: 45rem;
     margin: auto;
@@ -45,6 +50,7 @@
 
 .cv-links {
     display: flex;
+    float: bottom;
 }
 .cv-link {
     background-color: #eeeeee;
@@ -57,8 +63,6 @@
     text-align: center;
     align-items: center
     font-weight: 5px;
-    text-decoration: none; 
-    color: inherit;
 }
 .cv-link:hover {
     background-color: #dddddd
@@ -72,12 +76,12 @@
         <div class="cv-row">
             <div class="cv-proj">
                 <div class="cv-flushleftright">
-                    <span class="cv-flushleft">{{ edu.institution | mdlink | safe }}, {{edu.area}}</span>
+                    <span class="cv-flushleft"><strong>{{ edu.institution | mdlink | safe }}</strong>, {{edu.area}}</span>
                     <span class="cv-flushright">{{ edu.location }}</span>
                 </div>
                 <div class="cv-flushleftright">
                     <span class="cv-flushleft">{{ edu.summary | mdlink | safe }}</span>
-                    <span class="cv-flushright">{% if edu.date %}{{ edu.date }} {% else %} {{ edu.start_date }} -<br> {{ edu.end_date }}{% endif %}</span>
+                    <span class="cv-flushright">{% if edu.date %}{{ edu.date }} {% else %} {{ edu.start_date }} - {{ edu.end_date }}{% endif %}</span>
                 </div>
             </div>
         </div>
@@ -88,7 +92,7 @@
             <div class="cv-img-proj">{% if exp.img %}<img src="{{ exp.img }}"></img>{% endif %}</div>
             <div class="cv-proj">
                 <div class="cv-flushleftright">
-                    <span class="cv-flushleft">{{ exp.company | mdlink | safe }}, {{exp.position}}</span>
+                    <span class="cv-flushleft"><strong>{{ exp.company | mdlink | safe }}</strong>, {{exp.position}}</span>
                     <span class="cv-flushright">{{ exp.location }}</span>
                 </div>
                 <div class="cv-flushleftright">
@@ -109,7 +113,7 @@
             <div class="cv-img-proj">{% if project.img %}<img src="{{ project.img }}"></img>{% endif %}</div>
             <div class="cv-proj">
                 <div class="cv-flushleftright">
-                    <span class="cv-flushleft">{{ project.name | mdlink | safe }}</span>
+                    <span class="cv-flushleft"><strong>{{ project.name | mdlink | safe }}</strong></span>
                     <span class="cv-flushright">{{ project.location }}</span>
                 </div>
                 <div class="cv-flushleftright">

@@ -32,7 +32,7 @@ def build_html(config: Config, infos):
         lstrip_blocks=True
     )
     env.filters["mdlink"] = lambda text: re.sub(
-        r'\[([^\]]+)\]\(([^)]+)\)', r'<a href="\2">\1</a>', text
+        r'\[([^\]]+)\]\(([^)]+)\)', r'<a href="\2">\1↗</a>', text
     )
     template = env.get_template(config.html_template_file)
     rendered = template.render(**infos)

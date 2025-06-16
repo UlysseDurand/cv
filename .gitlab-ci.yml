@@ -14,7 +14,7 @@ pages:
     - rendercv render cv.yml
     - mkdir -p public
     - cp -r rendercv_output/* public/
-    - cp cv.html public/
+    - cp cv.html public/index.html
   
   artifacts:
     paths:
