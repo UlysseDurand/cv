@@ -2,13 +2,8 @@
 
 <style>
 
-a {
-    color: #000050;
-    text-decoration: none;
-}
-
-.container {
-    width: 45rem;
+.cv {
+    width: 50vw;
     margin: auto;
 }
 
@@ -24,13 +19,22 @@ a {
     width: auto;
 }
 
+.cv-proj a {
+    color: #000050;
+    text-decoration: none;
+}
+
 .cv-img-proj {
     height: 10rem;
     width: 10rem;
-    background-color: grey;
     float: right;
     margin-left: 1em;
-    margin-botton: 1em;
+}
+
+.cv-img-proj img {
+    max-width: 100%;
+    max-height: 100%;
+    aspect-ratio: 1/1;
 }
 
 .cv-flushleftright {
@@ -70,13 +74,13 @@ a {
 </style>
 
 <body>
-    <div class="container">
+    <div class="cv">
         <h2>Education</h2>
         {% for edu in sections.education %}
-        <div class="cv-row">
-            <div class="cv-proj">
+        <div class="cv-row" style="margin-bottom: 0.2em">
+            <div class="cv-proj" style="padding: 0.2em">
                 <div class="cv-flushleftright">
-                    <span class="cv-flushleft"><strong>{{ edu.institution | mdlink | safe }}</strong>, {{edu.area}}</span>
+                    <span class="cv-flushleft" style="margin-bottom: 0.2em"><strong>{{ edu.institution | mdlink | safe }}</strong>, {{edu.area}}</span>
                     <span class="cv-flushright">{{ edu.location }}</span>
                 </div>
                 <div class="cv-flushleftright">
@@ -92,7 +96,7 @@ a {
             <div class="cv-img-proj">{% if exp.img %}<img src="{{ exp.img }}"></img>{% endif %}</div>
             <div class="cv-proj">
                 <div class="cv-flushleftright">
-                    <span class="cv-flushleft"><strong>{{ exp.company | mdlink | safe }}</strong>, {{exp.position}}</span>
+                    <span class="cv-flushleft" style="margin-bottom: 0.2em"><strong>{{ exp.company | mdlink | safe }}</strong>, {{exp.position}}</span>
                     <span class="cv-flushright">{{ exp.location }}</span>
                 </div>
                 <div class="cv-flushleftright">
@@ -103,6 +107,7 @@ a {
                     {% if exp.repository %} <a class="cv-link" href="{{ exp.repository }}">Repository</a> {% endif %}
                     {% if exp.report %} <a class="cv-link" href="{{ exp.report }}">Report</a> {% endif %}
                     {% if exp.demo %} <a class="cv-link" href="{{ exp.demo }}">Demo</a> {% endif %}
+                    {% if exp.slides %} <a class="cv-link" href="{{ exp.slides }}">Slides</a> {% endif %}
                 </div>
             </div>
         </div>
@@ -110,20 +115,22 @@ a {
         <h2>Projects</h2>
         {% for project in sections.projects %}
         <div class="cv-row">
-            <div class="cv-img-proj">{% if project.img %}<img src="{{ project.img }}"></img>{% endif %}</div>
+            <div class="cv-img-proj">{% if project.img is defined %}<img src="{{ project.img }}"></img>{% endif %}</div>
             <div class="cv-proj">
                 <div class="cv-flushleftright">
-                    <span class="cv-flushleft"><strong>{{ project.name | mdlink | safe }}</strong></span>
+                    <span class="cv-flushleft" style="margin-bottom: 0.2em"><strong>{{ project.name | mdlink | safe }}</strong></span>
                     <span class="cv-flushright">{{ project.location }}</span>
                 </div>
                 <div class="cv-flushleftright">
                     <span class="cv-flushleft">{{ (project.summary if project.summary else project.optsummary if project.optsummary) | mdlink | safe }}</span>
                     <span class="cv-flushright">{% if project.date %}{{ project.date }} {% else %} {{ project.start_date }} -<br> {{ project.end_date }}{% endif %}</span>
                 </div>
-                <div class="cv-links"> 
+                <div class="cv-links">
+                    {% if project.demo %} <a class="cv-link" href="{{ project.demo }}">Demo</a> {% endif %}
+                    {% if project.video %} <a class="cv-link" href="{{ project.video }}">Video</a> {% endif %}
                     {% if project.repository %} <a class="cv-link" href="{{ project.repository }}">Repository</a> {% endif %}
                     {% if project.report %} <a class="cv-link" href="{{ project.report }}">Report</a> {% endif %}
-                    {% if project.demo %} <a class="cv-link" href="{{ project.demo }}">Demo</a> {% endif %}
+                    {% if project.slides %} <a class="cv-link" href="{{ project.slides }}">Slides</a> {% endif %}
                 </div>
             </div>
         </div>

@@ -57,7 +57,9 @@ sections:
       location: Toulouse, France
       summary: 'Formal proofs on the post quantum cryptographic algorithm [ML-KEM](https://nvlpubs.nist.gov/nistpubs/fips/nist.fips.203.pdf) using [Ada/SPARK](https://www.adacore.com/about-spark)'
       repository: 'https://gitlab.com/ulysse_durand/crypto_in_spark'
-      report: 'https://gitlab.com/ulysse_durand/crypto_in_spark/-/blob/main/Report/out.pdf'
+      report: 'https://gitlab.com/ulysse_durand/crypto_in_spark/-/raw/main/Report/out.pdf'
+      slides: 'https://gitlab.com/ulysse_durand/crypto_in_spark/-/raw/main/presentation/out.pdf'
+      img: 'https://gitlab.com/ulysse_durand/crypto_in_spark/-/raw/main/thumbnail.png'
 
     - company: "[Logic, Semantics and Categories team](https://lsc.lis-lab.fr) (LIS & I2M)"
       position: Research Intern
@@ -66,47 +68,65 @@ sections:
       location: Luminy, Marseille, France
       summary: 'Formalizing and proving game semantics in Coq' 
       repository: https://gitlab.com/ulysse_durand/game_semantics_in_coq
+      slides: 'https://gitlab.com/ulysse_durand/game_semantics_in_coq/-/raw/main/presentation/doc.pdf'
+      report: 'https://gitlab.com/ulysse_durand/game_semantics_in_coq/-/raw/main/rapport/doc.pdf'
+      img: 'https://gitlab.com/ulysse_durand/game_semantics_in_coq/-/raw/main/thumbnail.png'
 
   projects:
 
     - name: 'CAD Software for virtual reality with Unity'
       start_date: 2024-10
       end_date: 2025-04
-      summary: 'Technical Project Manager in a 7-person team, with [ASSYSTEM](https://www.assystem.com/en/) as client'
+      summary: 'Technical Project Manager in a 7-person team, with [ASSYSTEM](https://www.assystem.com/en/) as client, done with Unity/C#, agile management.'
       repository: 'https://gitlab.com/ulysse_durand/pai-cao-vr'
+      img: 'https://gitlab.com/ulysse_durand/pai-cao-vr/-/raw/main/assets/Screenshot.png'
+      video: 'https://www.youtube.com/embed/JCr8g94aiuc'
+      report: 'https://gitlab.com/ulysse_durand/pai-cao-vr/-/raw/main/assets/Final_Report.pdf'
 
     - name: 'Hiking Trip planification assistant with Python/JS'
       start_date: 2023
       end_date: 2024
       summary: 'Technical Project Manager in a 5-person team, using [LidarHD](https://geoservices.ign.fr/lidarhd) data to automaticaly map hiking routes off-trail'
       repository: 'https://gitlab.com/vivelageo/planirando'
+      img: 'https://gitlab.com/vivelageo/planirando/-/raw/main/thumbnail.png'
 
     - name: 'Coursework - OCaml interpreter coded in OCaml'
       date: 2023
       optsummary: 'Written in OCaml with Lex and Yacc'
       repository: 'https://gitlab.com/ulysse_durand/fouineprofonde'
+      img: 'https://gitlab.com/ulysse_durand/fouineprofonde/-/raw/main/thumbnail.png'
 
     - name: 'Coursework - MiniC (subset of C) compiler to RISCV'
       date: 2023
       optsummary: 'This Python project used ANTLR4 for lexing and parsing and implemented three-address code generation, liveness analysis, CFG, SSA, Smart Register Allocation, Conditional Constant Propagation'
       repository: 'https://gitlab.com/ulysse_durand/caplab'
+      img: 'https://gitlab.com/ulysse_durand/caplab/-/raw/main/thumbnail.png'
 
     - name: 'ENS Entrance Exam Research - Automatic proof in formal grammars'
       start_date: 2021
       end_date: 2022
-      optsummary: 'blabla'
+      optsummary: 'Attempt at finding proofs for belonging to the language of a CFG, reasoning on number of symbols in words. Implementation in OCaml'
+      report: 'https://gitlab.com/ulysse_durand/preuves-grammaires/-/raw/master/readme/TIPE_Ulysse_DURAND.pdf'
+      slides: 'https://gitlab.com/ulysse_durand/preuves-grammaires/-/raw/master/readme/diapo.pdf'
+      img: 'https://gitlab.com/ulysse_durand/preuves-grammaires/-/raw/master/thumbnail.png'
       repository: 'https://gitlab.com/ulysse_durand/preuves-grammaires'
 
     - name: 'ENS Entrance Exam Research - Naïve parsing and evaluation'
       start_date: 2020
       end_date: 2021
-      optsummary: 'blabla'
+      optsummary: 'A naïve attempt at building an OCaml parser and walker for math expressions with new type of automaton (writer with memory). Also includes math expression differentiation, evaluation and simplification.'
+      img: 'https://gitlab.com/ulysse_durand/calcul-formel/-/raw/master/thumbnail.png'
       repository: 'https://gitlab.com/ulysse_durand/calcul-formel'
+      report: 'https://gitlab.com/ulysse_durand/calcul-formel/-/raw/master/readme/calculformel.pdf'
 
     - name: 'French Baccalaureate Engineering project, 3D Scanner'
       date: 2019
-      optsummary: 'blabla'
-      repository: 'gitlab.com/ulysse_durand/scanner3d'
+      optsummary: 'Reconstructs a 3D mesh of an object from its shadows under different angles. One implementation is in C++ and uses the Marching Cubes algorithm, the other one is in Python and computes shapes intersection'
+      report: 'https://gitlab.com/ulysse_durand/scanner3d/-/raw/main/readme/Scanner3D.pdf'
+      repository: 'https://gitlab.com/ulysse_durand/scanner3d'
+      demo: 'https://ulysse_durand.gitlab.io/scanner3d/v2nb'
+      video: 'https://www.youtube.com/shorts/9kxT4gUFv1E'
+      img: 'https://gitlab.com/ulysse_durand/scanner3d/-/raw/main/thumbnail.png'
 
   skills:
     - label: Advanced expertise

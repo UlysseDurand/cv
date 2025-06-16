@@ -81,7 +81,7 @@ cv:
         start_date: 2024-10
         end_date: 2025-04
         location: 
-        summary: 'Technical Project Manager in a 7-person team, with [ASSYSTEM](https://www.assystem.com/en/) as client'
+        summary: 'Technical Project Manager in a 7-person team, with [ASSYSTEM](https://www.assystem.com/en/) as client, done with Unity/C#, agile management.'
         highlights: 
       - name: 'Hiking Trip planification assistant with Python/JS ([Repository](https://gitlab.com/vivelageo/planirando))'
         date: 
@@ -118,7 +118,7 @@ cv:
         location: 
         summary: ''
         highlights: 
-      - name: 'French Baccalaureate Engineering project, 3D Scanner ([Repository](gitlab.com/ulysse_durand/scanner3d))'
+      - name: 'French Baccalaureate Engineering project, 3D Scanner ([Repository](https://gitlab.com/ulysse_durand/scanner3d))'
         date: 2019
         start_date: 
         end_date: 
