@@ -14,7 +14,7 @@ cv:
       - institution: '[Ecole Centrale Lyon](https://www.ec-lyon.fr/en/academics/general-engineering)'
         area: General Engineering & Software Development
         degree: None
-        date: None
+        date: 
         start_date: 2024
         end_date: 2026
         location: Ecully, France
@@ -23,7 +23,7 @@ cv:
       - institution: '[ENS Lyon](https://informatique.ens-lyon.fr/en/academic-programs/master/m1)'
         area: Computer Science
         degree: None
-        date: None
+        date: 
         start_date: 2023
         end_date: 2026
         location: Lyon, France
@@ -32,7 +32,7 @@ cv:
       - institution: '[ENS Lyon](https://informatique.ens-lyon.fr/en/academic-programs/l3)'
         area: Fundamental Computer Science
         degree: None
-        date: None
+        date: 
         start_date: 2022
         end_date: 2023
         location: Lyon, France
@@ -41,7 +41,7 @@ cv:
       - institution: 'CPGE Blaise Pascal'
         area: Mathematics, Physics, Computer Science, Engineering
         degree: None
-        date: None
+        date: 
         start_date: 2019
         end_date: 2022
         location: Clermont-Ferrand, France
@@ -53,14 +53,14 @@ cv:
         date: 2019
         start_date: 
         end_date: 
-        location: 
+        location: Chalon-sur-Saône, France
         summary: 'French Baccalaureate'
         highlights: 
 
     experience:
       - company: '[AdaCore](https://www.adacore.com/company) ([Repository](https://gitlab.com/ulysse_durand/crypto_in_spark))'
         position: Engineering/Research Intern
-        date: None
+        date: 
         start_date: 2024-04
         end_date: 2024-07
         location: Toulouse, France
@@ -68,7 +68,7 @@ cv:
         highlights: 
       - company: '[Logic, Semantics and Categories team](https://lsc.lis-lab.fr) (LIS & I2M) ([Repository](https://gitlab.com/ulysse_durand/game_semantics_in_coq))'
         position: Research Intern
-        date: None
+        date: 
         start_date: 2022-05
         end_date: 2022-06
         location: Luminy, Marseille, France
@@ -77,14 +77,14 @@ cv:
 
     projects:
       - name: 'CAD Software for virtual reality with Unity ([Repository](https://gitlab.com/ulysse_durand/pai-cao-vr))'
-        date: None
+        date: 
         start_date: 2024-10
         end_date: 2025-04
-        location: None
-        summary: 'Technical Project Manager in a 7-person team, the client is [ASSYSTEM](https://www.assystem.com/en/)'
+        location: 
+        summary: 'Technical Project Manager in a 7-person team, with [ASSYSTEM](https://www.assystem.com/en/) as client'
         highlights: 
       - name: 'Hiking Trip planification assistant with Python/JS ([Repository](https://gitlab.com/vivelageo/planirando))'
-        date: None
+        date: 
         start_date: 2023
         end_date: 2024
         location: 
@@ -97,7 +97,7 @@ cv:
         location: 
         summary: ''
         highlights: 
-      - name: 'Coursework - MiniC (subset of C) compiler in Python Lex-Yacc ([Repository](https://gitlab.com/ulysse_durand/caplab))'
+      - name: 'Coursework - MiniC (subset of C) compiler to RISCV ([Repository](https://gitlab.com/ulysse_durand/caplab))'
         date: 2023
         start_date: 
         end_date: 

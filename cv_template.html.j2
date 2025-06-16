@@ -1,0 +1,129 @@
+<meta charset='utf8'>
+
+<style>
+
+.container {
+    width: 45rem;
+    margin: auto;
+}
+
+.cv-row {
+    margin-bottom: 1rem;
+    background-color: #fafafa;
+    width:100%;
+    overflow: hidden;
+}
+
+.cv-proj {
+    padding: 1em;
+    width: auto;
+}
+
+.cv-img-proj {
+    height: 10rem;
+    width: 10rem;
+    background-color: grey;
+    float: right;
+    margin-left: 1em;
+    margin-botton: 1em;
+}
+
+.cv-flushleftright {
+    display: flex;
+    justify-content: space-between;
+    # margin-bottom: 1em;
+}
+
+.cv-flushleft {
+    text-align: left;
+}
+
+.cv-flushright {
+    text-align: right;
+    min-width: 5em;
+}
+
+.cv-links {
+    display: flex;
+}
+.cv-link {
+    background-color: #eeeeee;
+    font-size: 1rem;
+    margin: 0 0.3em;
+    padding: 0.5em;
+    border: none;
+    cursor: pointer;
+    flex: 1;
+    text-align: center;
+    align-items: center
+    font-weight: 5px;
+    text-decoration: none; 
+    color: inherit;
+}
+.cv-link:hover {
+    background-color: #dddddd
+}
+</style>
+
+<body>
+    <div class="container">
+        <h2>Education</h2>
+        {% for edu in sections.education %}
+        <div class="cv-row">
+            <div class="cv-proj">
+                <div class="cv-flushleftright">
+                    <span class="cv-flushleft">{{ edu.institution | mdlink | safe }}, {{edu.area}}</span>
+                    <span class="cv-flushright">{{ edu.location }}</span>
+                </div>
+                <div class="cv-flushleftright">
+                    <span class="cv-flushleft">{{ edu.summary | mdlink | safe }}</span>
+                    <span class="cv-flushright">{% if edu.date %}{{ edu.date }} {% else %} {{ edu.start_date }} -<br> {{ edu.end_date }}{% endif %}</span>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+        <h2>Experience</h2>
+        {% for exp in sections.experience %}
+        <div class="cv-row">
+            <div class="cv-img-proj">{% if exp.img %}<img src="{{ exp.img }}"></img>{% endif %}</div>
+            <div class="cv-proj">
+                <div class="cv-flushleftright">
+                    <span class="cv-flushleft">{{ exp.company | mdlink | safe }}, {{exp.position}}</span>
+                    <span class="cv-flushright">{{ exp.location }}</span>
+                </div>
+                <div class="cv-flushleftright">
+                    <span class="cv-flushleft">{{ exp.summary | mdlink | safe }}</span>
+                    <span class="cv-flushright">{% if exp.date %}{{ exp.date }} {% else %} {{ exp.start_date }} -<br> {{ exp.end_date }}{% endif %}</span>
+                </div>
+                <div class="cv-links"> 
+                    {% if exp.repository %} <a class="cv-link" href="{{ exp.repository }}">Repository</a> {% endif %}
+                    {% if exp.report %} <a class="cv-link" href="{{ exp.report }}">Report</a> {% endif %}
+                    {% if exp.demo %} <a class="cv-link" href="{{ exp.demo }}">Demo</a> {% endif %}
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+        <h2>Projects</h2>
+        {% for project in sections.projects %}
+        <div class="cv-row">
+            <div class="cv-img-proj">{% if project.img %}<img src="{{ project.img }}"></img>{% endif %}</div>
+            <div class="cv-proj">
+                <div class="cv-flushleftright">
+                    <span class="cv-flushleft">{{ project.name | mdlink | safe }}</span>
+                    <span class="cv-flushright">{{ project.location }}</span>
+                </div>
+                <div class="cv-flushleftright">
+                    <span class="cv-flushleft">{{ (project.summary if project.summary else project.optsummary if project.optsummary) | mdlink | safe }}</span>
+                    <span class="cv-flushright">{% if project.date %}{{ project.date }} {% else %} {{ project.start_date }} -<br> {{ project.end_date }}{% endif %}</span>
+                </div>
+                <div class="cv-links"> 
+                    {% if project.repository %} <a class="cv-link" href="{{ project.repository }}">Repository</a> {% endif %}
+                    {% if project.report %} <a class="cv-link" href="{{ project.report }}">Report</a> {% endif %}
+                    {% if project.demo %} <a class="cv-link" href="{{ project.demo }}">Demo</a> {% endif %}
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+</body>

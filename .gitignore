@@ -1,4 +1,6 @@
 rendercv_output/
+cv.yml
+cv.html
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
