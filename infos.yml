@@ -108,6 +108,7 @@ sections:
       optsummary: 'Attempt at finding proofs for belonging to the language of a CFG, reasoning on number of symbols in words. Implementation in OCaml'
       report: 'https://gitlab.com/ulysse_durand/preuves-grammaires/-/raw/master/readme/TIPE_Ulysse_DURAND.pdf'
       slides: 'https://gitlab.com/ulysse_durand/preuves-grammaires/-/raw/master/readme/diapo.pdf'
+      demo: 'https://ulysse_durand.gitlab.io/preuves-grammaires/code-runner/'
       img: 'https://gitlab.com/ulysse_durand/preuves-grammaires/-/raw/master/thumbnail.png'
       repository: 'https://gitlab.com/ulysse_durand/preuves-grammaires'
 
