@@ -117,7 +117,7 @@ sections:
       end_date: 2021
       optsummary: 'A naïve attempt at building an OCaml parser and walker for math expressions with new type of automaton (writer with memory). Also includes math expression differentiation, evaluation and simplification.'
       img: 'https://gitlab.com/ulysse_durand/calcul-formel/-/raw/master/thumbnail.png'
-      demo: 'https://ulysse_durand.gitlab.io/calcul-formel-api/code-runner/' 
+      demo: 'https://ulysse_durand.gitlab.io/calcul-formel/code-runner/' 
       repository: 'https://gitlab.com/ulysse_durand/calcul-formel'
       report: 'https://gitlab.com/ulysse_durand/calcul-formel/-/raw/master/readme/calculformel.pdf'
 
