@@ -100,6 +100,14 @@ sections:
       repository: 'https://gitlab.com/vivelageo/planirando'
       img: 'https://gitlab.com/vivelageo/planirando/-/raw/main/thumbnail.png'
 
+    - name: 'Music Reacting LED Garland'
+      date: 2025-10
+      summary: 'Embedded system, music reacting garland with a Teensy4.0 for Music Information Retrieval and ESP32 for WiFi interface and LED control'
+      repository: 'https://gitlab.com/ulysse_durand/sound-visu'
+      img: 'https://gitlab.com/ulysse_durand/sound-visu/-/raw/main/thumbnail.png'
+      video: 'https://youtube.com/shorts/V7wl8Mq_v3s'
+      slides: 'https://gitlab.com/ulysse_durand/sound-visu/-/blob/main/Presentation.md'
+
     - name: 'Coursework - OCaml interpreter coded in OCaml'
       date: 2023
       optsummary: 'Written in OCaml with Lex and Yacc'
