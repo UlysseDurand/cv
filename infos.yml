@@ -108,6 +108,14 @@ sections:
       video: 'https://youtube.com/shorts/V7wl8Mq_v3s'
       slides: 'https://gitlab.com/ulysse_durand/sound-visu/-/blob/main/Presentation.md'
 
+    - name: 'Visual Autoregressive Model with WGAN Image generation'
+      date: 2025-11
+      summary: 'In a group of 2, after trying to reproduce VAR paper results, we tried to enhance the model. The results are not satisfying (small scale, not enough computing power)'
+      repository: 'https://gitlab.com/ulysse_durand/var-vqwgan'
+      report: 'https://gitlab.com/ulysse_durand/var-vqwgan/-/raw/main/report/report.pdf'
+      slides: 'https://gitlab.com/ulysse_durand/var-vqwgan/-/raw/main/slides/slides.pdf'
+      img: 'https://gitlab.com/ulysse_durand/var-vqwgan/-/raw/main/slides/epoch_0060_recon.png'
+
     - name: 'Coursework - OCaml interpreter coded in OCaml'
       date: 2023
       optsummary: 'Written in OCaml with Lex and Yacc'
