@@ -1,6 +1,6 @@
 cv:
   name: Ulysse Durand
-  location: 25 rue de l'Effort 69007, Lyon France
+  location: 
   email: ulysse.durand@ens-lyon.fr
   phone: +33 6 26 04 50 07
   website: https://perso.ens-lyon.fr/ulysse.durand
@@ -137,7 +137,6 @@ cv:
     extracurricular_activities:
       - bullet: Competitive Programming, [Prologin](https://prologin.org/) finalist in 2022
       - bullet: Organizer of hiking tours for 10 to 20 persons every summer since 2020
-      - bullet: Gender-Based Violence Prevention Staff and Light Engineer at ENS Lyon student union in 2023-2024
 design:
   theme: classic
   page:
@@ -150,9 +149,9 @@ design:
     show_last_updated_date: false
   colors:
     text: rgb(0, 0, 0)
-    name: rgb(0, 79, 144)
-    connections: rgb(0, 79, 144)
-    section_titles: rgb(0, 79, 144)
+    name: rgb(133, 122, 237)
+    connections: rgb(133, 122, 237)
+    section_titles: rgb(133, 122, 237)
     links: rgb(0, 30, 80)
     last_updated_date_and_page_numbering: rgb(128, 128, 128)
   text:
