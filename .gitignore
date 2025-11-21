@@ -57,3 +57,6 @@ venv.bak/
 
 # macOS
 .DS_Store
+
+cv.html
+rendercv_output/

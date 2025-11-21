@@ -58,6 +58,14 @@ cv:
         highlights: 
 
     experience:
+      - company: '[Mahindra University](https://www.mahindrauniversity.edu.in) ([Repository](https://gitlab.com/ulysse_durand/eeg-ml))'
+        position: Research Intern
+        date: 
+        start_date: 2025-04
+        end_date: 2025-07
+        location: Hyderabad, India
+        summary: 'Research on EEG-conditioned Image generation models, running experiments, proposing a new metric, leading to a paper submission'
+        highlights: 
       - company: '[AdaCore](https://www.adacore.com/company) ([Repository](https://gitlab.com/ulysse_durand/crypto_in_spark))'
         position: Engineering/Research Intern
         date: 
@@ -89,6 +97,20 @@ cv:
         end_date: 2024
         location: 
         summary: 'Technical Project Manager in a 5-person team, using [LidarHD](https://geoservices.ign.fr/lidarhd) data to automaticaly map hiking routes off-trail'
+        highlights: 
+      - name: 'Music Reacting LED Garland ([Repository](https://gitlab.com/ulysse_durand/sound-visu))'
+        date: 2025-10
+        start_date: 
+        end_date: 
+        location: 
+        summary: 'Embedded system, music reacting garland with a Teensy4.0 for Music Information Retrieval and ESP32 for WiFi interface and LED control'
+        highlights: 
+      - name: 'Visual Autoregressive Model with WGAN Image generation ([Repository](https://gitlab.com/ulysse_durand/var-vqwgan))'
+        date: 2025-11
+        start_date: 
+        end_date: 
+        location: 
+        summary: 'In a group of 2, after trying to reproduce VAR paper results, we tried to enhance the model. The results are not satisfying (small scale, not enough computing power)'
         highlights: 
       - name: 'Coursework - OCaml interpreter coded in OCaml ([Repository](https://gitlab.com/ulysse_durand/fouineprofonde))'
         date: 2023
