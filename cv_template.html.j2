@@ -103,11 +103,11 @@
                     <span class="cv-flushright">{% if exp.date %}{{ exp.date }} {% else %} {{ exp.start_date }} -<br> {{ exp.end_date }}{% endif %}</span>
                 </div>
                 <div class="cv-links"> 
-                    {% if exp.demo %} <a class="cv-link" href="{{ exp.demo }}">Demo</a> {% endif %}
-                    {% if exp.video %} <a class="cv-link" href="{{ exp.video }}">Video</a> {% endif %}
-                    {% if exp.repository %} <a class="cv-link" href="{{ exp.repository }}">Repository</a> {% endif %}
-                    {% if exp.report %} <a class="cv-link" href="{{ exp.report}}">Report</a> {% endif %}
-                    {% if exp.slides %} <a class="cv-link" href="{{ exp.slides}}">Slides</a> {% endif %}                </div>
+                    {% if exp.demo %} <a class="cv-link" href="{{ exp.demo }}"><p>Demo</p></a> {% endif %}
+                    {% if exp.video %} <a class="cv-link" href="{{ exp.video }}"><p>Video</p></a> {% endif %}
+                    {% if exp.repository %} <a class="cv-link" href="{{ exp.repository }}"><p>Repository</p></a> {% endif %}
+                    {% if exp.report %} <a class="cv-link" href="{{ exp.report}}"><p>Report</p></a> {% endif %}
+                    {% if exp.slides %} <a class="cv-link" href="{{ exp.slides}}"><p>Slides</p></a> {% endif %}                </div>
             </div>
         </div>
         {% endfor %}
@@ -125,11 +125,11 @@
                     <span class="cv-flushright">{% if project.date %}{{ project.date }} {% else %} {{ project.start_date }} -<br> {{ project.end_date }}{% endif %}</span>
                 </div>
                 <div class="cv-links">
-                    {% if project.demo %} <a class="cv-link" href="{{ project.demo }}">Demo</a> {% endif %}
-                    {% if project.video %} <a class="cv-link" href="{{ project.video }}">Video</a> {% endif %}
-                    {% if project.repository %} <a class="cv-link" href="{{ project.repository }}">Repository</a> {% endif %}
-                    {% if project.report %} <a class="cv-link" href="{{ project.report}}">Report</a> {% endif %}
-                    {% if project.slides %} <a class="cv-link" href="{{ project.slides}}">Slides</a> {% endif %}
+                    {% if project.demo %} <a class="cv-link" href="{{ project.demo }}"><p>Demo</p></a> {% endif %}
+                    {% if project.video %} <a class="cv-link" href="{{ project.video }}"><p>Video</p></a> {% endif %}
+                    {% if project.repository %} <a class="cv-link" href="{{ project.repository }}"><p>Repository</p></a> {% endif %}
+                    {% if project.report %} <a class="cv-link" href="{{ project.report}}"><p>Report</p></a> {% endif %}
+                    {% if project.slides %} <a class="cv-link" href="{{ project.slides}}"><p>Slides</p></a> {% endif %}
                 </div>
             </div>
         </div>
