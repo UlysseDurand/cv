@@ -80,6 +80,7 @@ sections:
       repository: https://gitlab.com/ulysse_durand/game_semantics_in_coq
       slides: 'https://gitlab.com/ulysse_durand/game_semantics_in_coq/-/raw/main/presentation/doc.pdf'
       report: 'https://gitlab.com/ulysse_durand/game_semantics_in_coq/-/raw/main/rapport/doc.pdf'
+      demo: 'https://ulysse_durand.gitlab.io/game_semantics_in_coq/'
       img: 'https://gitlab.com/ulysse_durand/game_semantics_in_coq/-/raw/main/thumbnail.png'
 
   projects:
