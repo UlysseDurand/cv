@@ -161,7 +161,7 @@ sections:
     - label: Advanced expertise
       details: 'Coq, Ada/SPARK, OCaml, Python'
     - label: Normal expertise
-      details: 'C++, Docker, Git, GitLab-CI, Unity/C#, C, Haskell, Rust, Web Development, Java'
+      details: 'C++, Cuda, PyTorch, Docker, Git, GitLab-CI, Unity/C#, C, Haskell, Rust, Web Development, Java'
     - label: Languages
       details: 'English (Cambridge C1 Advanced), French(native)'
 
