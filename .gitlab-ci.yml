@@ -11,7 +11,7 @@ pages:
   script:
     - pip install -r requirements.txt
     - python -m src.renderer
-    - rendercv render cv.yml
+    - rendercv render intermediate/cv.yml
     - mkdir -p public
     - cp -r rendercv_output/* public/
     - cp cv.html public/index.html

@@ -1,0 +1,60 @@
+name: Ulysse Durand
+email: ulysse.durand@ens-lyon.fr
+phone: +33 6 26 04 50 07
+website: https://uldr.fr
+social_networks:
+  - network: GitHub
+    username: UlysseDurand
+sections:
+
+  education:
+
+    - institution: "[Ecole Centrale Lyon](https://www.ec-lyon.fr/en/academics/general-engineering)"
+      area: General Engineering & Software Development
+      degree:
+      start_date: 2024
+      end_date: 2026
+      location: Ecully, France
+      summary: '[Double Masters Degree with ENS Lyon](https://www.ens-lyon.fr/en/studies/academic-programs/joint-diplomas/double-degree-ecole-centrale-de-lyon-engineering-research)'
+
+    - institution: "[ENS Lyon](https://informatique.ens-lyon.fr/en/academic-programs/master/m1)"
+      area: Computer Science
+      degree:
+      start_date: 2023
+      end_date: 2026
+      location: Lyon, France
+      summary: '[Double Masters Degree with Centrale Lyon](https://www.ens-lyon.fr/en/studies/academic-programs/joint-diplomas/double-degree-ecole-centrale-de-lyon-engineering-research)'
+
+    - institution: "[ENS Lyon](https://informatique.ens-lyon.fr/en/academic-programs/l3)"
+      area: Fundamental Computer Science
+      degree:
+      start_date: 2022
+      end_date: 2023
+      location: Lyon, France
+      summary: 'Bachelor Degree'
+
+    - institution: CPGE Blaise Pascal
+      area: Mathematics, Physics, Computer Science, Engineering
+      degree:
+      start_date: 2019
+      end_date: 2022
+      location: Clermont-Ferrand, France
+      summary: 'Preparatory Classes for Elite Schools (CPGE), MPSI'
+
+    - institution: Lycée Niepce
+      area: Science
+      date: 2019 
+      location: Chalon-sur-Saône, France
+      summary: 'French Baccalaureate'
+
+  skills:
+    - label: Advanced expertise
+      details: 'Coq, Ada/SPARK, OCaml, Python'
+    - label: Normal expertise
+      details: 'C++, Cuda, PyTorch, Docker, Git, GitLab-CI, Unity/C#, C, Haskell, Rust, Web Development, Java'
+    - label: Languages
+      details: 'English (Cambridge C1 Advanced), French(native)'
+
+  extracurricular_activities:
+    - bullet: 'Competitive Programming, [Prologin](https://prologin.org/) finalist in 2022'
+    - bullet: 'Organizer of week long hike tours for 10 to 20 persons every summer (2020-2023)'
