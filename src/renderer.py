@@ -1,14 +1,11 @@
 from jinja2 import Environment, FileSystemLoader
-from jinja2.filters import do_dictsort
 import yaml
-import markdown
 import re
-import sys
 
-from src.config import Config, get_config
+from config import Config
 
 def load_infos(config):
-    with open(config.input_file) as f:
+    with open(config.fetched_infos_file) as f:
         infos = yaml.safe_load(f)
     return infos
 
@@ -38,13 +35,9 @@ def build_html(config: Config, infos):
     rendered = template.render(**infos)
     return rendered
 
-def main(config: Config):
+def render_cv_from_templates(config: Config):
     infos = load_infos(config)
     with open(config.yml_output_file, 'w') as f:
        f.write(build_yml(config, infos)) 
     with open(config.html_output_file, 'w') as f:
        f.write(build_html(config, infos)) 
-
-if __name__ == '__main__':
-    config = get_config()
-    main(config)

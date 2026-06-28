@@ -1,6 +1,4 @@
-rendercv_output/
-cv.yml
-cv.html
+build/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
@@ -58,5 +56,3 @@ venv.bak/
 # macOS
 .DS_Store
 
-cv.html
-rendercv_output/
