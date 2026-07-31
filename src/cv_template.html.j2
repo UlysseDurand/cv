@@ -45,7 +45,9 @@
                     {% if exp.video %} <a class="cv-link" href="{{ exp.video }}"><p>Video</p></a> {% endif %}
                     {% if exp.repository %} <a class="cv-link" href="{{ exp.repository }}"><p>Repository</p></a> {% endif %}
                     {% if exp.report %} <a class="cv-link" href="{{ exp.report}}"><p>Report</p></a> {% endif %}
-                    {% if exp.slides %} <a class="cv-link" href="{{ exp.slides}}"><p>Slides</p></a> {% endif %}                </div>
+                    {% if exp.slides %} <a class="cv-link" href="{{ exp.slides}}"><p>Slides</p></a> {% endif %}
+                    {% if exp.paper %} <a class="cv-link" href="{{ exp.paper}}"><p>Paper</p></a> {% endif %}
+		</div>
             </div>
         </div>
         {% endfor %}
@@ -68,6 +70,7 @@
                     {% if project.repository %} <a class="cv-link" href="{{ project.repository }}"><p>Repository</p></a> {% endif %}
                     {% if project.report %} <a class="cv-link" href="{{ project.report}}"><p>Report</p></a> {% endif %}
                     {% if project.slides %} <a class="cv-link" href="{{ project.slides}}"><p>Slides</p></a> {% endif %}
+                    {% if project.paper %} <a class="cv-link" href="{{ project.paper}}"><p>Paper</p></a> {% endif %}
                 </div>
             </div>
         </div>

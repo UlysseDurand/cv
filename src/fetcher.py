@@ -27,21 +27,21 @@ def fetch_cv_infos(config: Config):
     url = "https://github.com/stars/UlysseDurand/lists/curriculum"
     gh_projects = retrieve_gh_star_list(url)
     infos = retrieve_multiple_repos_graphql(gh_projects, {"infos_yml": "infos.yml"}, {"report": ("report", "report.pdf"), "slides": ("slides", "slides.pdf")})
-    experience = []
+    experiences = []
     projects = []
     for _, repo_data in infos.items():
         infos_yml = retrieve_yml_infos(repo_data)
         if "company" in infos_yml:
-            experience.append(infos_yml)
+            experiences.append(infos_yml)
             infos_yml["summary"] = infos_yml["name"]
             del infos_yml["name"]
         elif len(infos_yml) > 0:
             projects.append(infos_yml)
-    experience.sort(key=sort_key, reverse=True)
+    experiences.sort(key=sort_key, reverse=True)
     projects.sort(key=sort_key, reverse=True)
     with open("base_infos.yml", "r") as f:
         cv_yml = yaml.safe_load(f)
-        cv_yml["sections"]["experience"] = experience
+        cv_yml["sections"]["experience"] = experiences
         cv_yml["sections"]["projects"] = projects
         cv_yml["sections"]["education"].sort(key=sort_key, reverse=True)
     os.makedirs(os.path.dirname(config.fetched_infos_file), exist_ok=True)
