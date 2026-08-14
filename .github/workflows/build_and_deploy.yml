@@ -36,6 +36,7 @@ jobs:
           mkdir -p public
           cp -r build/rendercv_output/* public/
           cp build/cv.html public/index.html
+          cp -r build/repos_images public/
       
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
