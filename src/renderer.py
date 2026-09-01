@@ -19,7 +19,7 @@ def build_yml(config: Config, infos):
         value, default_flow_style=False, allow_unicode=True, indent=indent
     )
     template = env.get_template(config.yml_template_file)
-    rendered = template.render(**infos)
+    rendered = template.render(lang=config.lang, **infos)
     return rendered
 
 def build_html(config: Config, infos):
@@ -32,12 +32,12 @@ def build_html(config: Config, infos):
         r'\[([^\]]+)\]\(([^)]+)\)', r'<a href="\2">\1</a>', text
     )
     template = env.get_template(config.html_template_file)
-    rendered = template.render(**infos)
+    rendered = template.render(lang=config.lang, **infos)
     return rendered
 
 def render_cv_from_templates(config: Config):
     infos = load_infos(config)
     with open(config.yml_output_file, 'w') as f:
-       f.write(build_yml(config, infos)) 
+       f.write(build_yml(config, infos))
     with open(config.html_output_file, 'w') as f:
-       f.write(build_html(config, infos)) 
+       f.write(build_html(config, infos))

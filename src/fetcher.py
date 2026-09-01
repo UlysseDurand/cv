@@ -63,7 +63,16 @@ def download_remote_image(remote_url: str, local_path: str, max_retries: int = 5
     )
 
 
-def retrieve_yml_infos(infos, image_cache_maker):
+def apply_lang(infos_yml, lang):
+    if lang == "fr":
+        for key in list(infos_yml.keys()):
+            if key.endswith("_fr"):
+                base_key = key[:-3]
+                infos_yml[base_key] = infos_yml[key]
+    return infos_yml
+
+
+def retrieve_yml_infos(infos, image_cache_maker, lang):
     yml_infos_str = infos.get("infos_yml", "")
     if yml_infos_str is None:
         return {}
@@ -79,6 +88,7 @@ def retrieve_yml_infos(infos, image_cache_maker):
             if release is not None:
                 for asset in release["releaseAssets"]["nodes"]:
                     infos_yml[release_tag] = asset["downloadUrl"]
+        infos_yml = apply_lang(infos_yml, lang)
         return infos_yml
 
 def sort_key(entry):
@@ -93,16 +103,19 @@ def fetch_cv_infos(config: Config):
     image_cache_maker = ImageCacheMaker(IMAGES_DOWNLOAD_DIR, IMAGES_SERVE_SUFFIX)
     os.makedirs(IMAGES_DOWNLOAD_DIR, exist_ok=True)
     for _, repo_data in infos.items():
-        infos_yml = retrieve_yml_infos(repo_data, image_cache_maker)
+        infos_yml = retrieve_yml_infos(repo_data, image_cache_maker, config.lang)
         if "company" in infos_yml:
             experiences.append(infos_yml)
-            infos_yml["summary"] = infos_yml["name"]
+            if config.lang == "fr":
+                infos_yml["summary"] = infos_yml.get("summary") or infos_yml["name"]
+            else:
+                infos_yml["summary"] = infos_yml["name"]
             del infos_yml["name"]
         elif len(infos_yml) > 0:
             projects.append(infos_yml)
     experiences.sort(key=sort_key, reverse=True)
     projects.sort(key=sort_key, reverse=True)
-    with open("base_infos.yml", "r") as f:
+    with open(config.base_infos_file, "r") as f:
         cv_yml = yaml.safe_load(f)
         cv_yml["sections"]["experience"] = experiences
         cv_yml["sections"]["projects"] = projects
