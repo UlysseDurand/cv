@@ -1,8 +1,8 @@
 from config import Config, get_config
 from fetcher import fetch_cv_infos
 from renderer import render_cv_from_templates
-import os
 import argparse
+import subprocess
 
 def main(config: Config):
     print(f"Fetching CV infos (lang={config.lang})...")
@@ -10,7 +10,10 @@ def main(config: Config):
     print("Rendering CV from templates...")
     render_cv_from_templates(config)
     output_folder = f"rendercv_output{'_fr' if config.lang == 'fr' else ''}"
-    os.system(f"rendercv render {config.yml_output_file} --output-folder {output_folder}")
+    subprocess.run(
+        ["rendercv", "render", config.yml_output_file, "--output-folder", output_folder],
+        check=True,
+    )
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
