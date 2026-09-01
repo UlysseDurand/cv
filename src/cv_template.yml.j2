@@ -15,52 +15,52 @@ cv:
     {{ sec_education }}:
       {% for edu in sections.education %}
       - institution: '{{ edu.institution }}'
-        area: {{ edu.area }}
-        degree: {{ edu.degree | default('') }}
-        date: {{ edu.date | default('') }}
-        start_date: {{ edu.start_date | default('') }}
-        end_date: {{ edu.end_date | default('') }}
-        location: {{ edu.location | default('') }}
-        summary: '{{ edu.summary | default('') }}'
-        highlights: {{ edu.highlights | default('') }}
+        area: {{ edu.area | to_yml_scalar }}
+        degree: {{ (edu.degree | default('')) | to_yml_scalar }}
+        date: {{ (edu.date | default('')) | to_yml_scalar }}
+        start_date: {{ (edu.start_date | default('')) | to_yml_scalar }}
+        end_date: {{ (edu.end_date | default('')) | to_yml_scalar }}
+        location: {{ (edu.location | default('')) | to_yml_scalar }}
+        summary: {{ (edu.summary | default('')) | to_yml_scalar }}
+        highlights: {{ (edu.highlights | default('')) | to_yml_scalar }}
       {% endfor %}
 
     {% set sec_experience = 'experience' if lang == 'en' else 'expériences' %}
     {{ sec_experience }}:
       {% for exp in sections.experience %}
       - company: '{{ exp.company }}{% if exp.repository %} ([Repo]({{ exp.repository }})){% endif %}'
-        position: {{ exp.position }}
-        date: {{ exp.date | default('') }}
-        start_date: {{ exp.start_date | default('') }}
-        end_date: {{ exp.end_date | default('') }}
-        location: {{ exp.location | default('') }}
-        summary: '{{ exp.summary | default('') }}'
-        highlights: {{ exp.highlights | default('') }}
+        position: {{ exp.position | to_yml_scalar }}
+        date: {{ (exp.date | default('')) | to_yml_scalar }}
+        start_date: {{ (exp.start_date | default('')) | to_yml_scalar }}
+        end_date: {{ (exp.end_date | default('')) | to_yml_scalar }}
+        location: {{ (exp.location | default('')) | to_yml_scalar }}
+        summary: {{ (exp.summary | default('')) | to_yml_scalar }}
+        highlights: {{ (exp.highlights | default('')) | to_yml_scalar }}
       {% endfor %}
 
     {% set sec_projects = 'projects' if lang == 'en' else 'projets' %}
     {{ sec_projects }}:
       {% for project in sections.projects %}
       - name: '{{ project.name }}{% if project.repository %} ([Repo]({{ project.repository }})){% endif %}'
-        date: {{ project.date | default('') }}
-        start_date: {{ project.start_date | default('') }}
-        end_date: {{ project.end_date | default('') }}
-        location: {{ project.location | default('') }}
-        summary: '{{ project.summary | default('') }}'
-        highlights: {{ project.highlights | default('') }}
+        date: {{ (project.date | default('')) | to_yml_scalar }}
+        start_date: {{ (project.start_date | default('')) | to_yml_scalar }}
+        end_date: {{ (project.end_date | default('')) | to_yml_scalar }}
+        location: {{ (project.location | default('')) | to_yml_scalar }}
+        summary: {{ (project.summary | default('')) | to_yml_scalar }}
+        highlights: {{ (project.highlights | default('')) | to_yml_scalar }}
       {% endfor %}
 
     {% set sec_skills = 'skills' if lang == 'en' else 'compétences' %}
     {{ sec_skills }}:
       {% for skill in sections.skills %}
-      - label: {{ skill.label }}
-        details: {{ skill.details }}
+      - label: {{ skill.label | to_yml_scalar }}
+        details: {{ skill.details | to_yml_scalar }}
       {% endfor %}
 
     {% set sec_extracurricular = 'extracurricular_activities' if lang == 'en' else 'activités_extrascolaires' %}
     {{ sec_extracurricular }}:
       {% for activity in sections.extracurricular_activities %}
-      - bullet: {{ activity.bullet }}
+      - bullet: {{ activity.bullet | to_yml_scalar }}
       {% endfor %}
 
 locale:
