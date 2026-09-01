@@ -26,16 +26,26 @@ jobs:
       - name: Install dependencies
         run: pip install -r requirements.txt
       
-      - name: Run build script
+      - name: Run build script (English)
         env:
             GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: python src/main.py
+        run: python src/main.py --lang en
+      
+      - name: Run build script (French)
+        env:
+            GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python src/main.py --lang fr
       
       - name: Prepare public directory
         run: |
           mkdir -p public
           cp -r build/rendercv_output/* public/
           cp build/cv.html public/index.html
+          
+          mkdir -p public/fr
+          cp build/rendercv_output_fr/* public/fr/
+          cp build/cv_fr.html public/fr/index.html
+          
           cp -r build/repos_images public/
       
       - name: Upload Pages artifact

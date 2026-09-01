@@ -1,0 +1,56 @@
+name: Ulysse Durand
+email: ulysse.durand@ens-lyon.fr
+phone: +33 6 26 04 50 07
+website: https://uldr.fr
+social_networks:
+  - network: GitHub
+    username: UlysseDurand
+sections:
+
+  education:
+
+    - institution: "[Ecole Centrale Lyon](https://www.ec-lyon.fr/en/academics/general-engineering)"
+      area: Ingénieur généraliste et développement logiciel
+      start_date: 2024
+      end_date: 2026
+      location: Ecully, France
+      summary: '[Double diplôme avec ENS Lyon](https://www.ens-lyon.fr/en/studies/academic-programs/joint-diplomas/double-degree-ecole-centrale-de-lyon-engineering-research)'
+
+    - institution: "[ENS Lyon](https://informatique.ens-lyon.fr/en/academic-programs/master/m1)"
+      area: Informatique
+      start_date: 2023
+      end_date: 2026
+      location: Lyon, France
+      summary: '[Double diplôme avec Centrale Lyon](https://www.ens-lyon.fr/en/studies/academic-programs/joint-diplomas/double-degree-ecole-centrale-de-lyon-engineering-research)'
+
+    - institution: "[ENS Lyon](https://informatique.ens-lyon.fr/en/academic-programs/l3)"
+      area: Informatique fondamentale
+      start_date: 2022
+      end_date: 2023
+      location: Lyon, France
+      summary: 'Licence'
+
+    - institution: CPGE Blaise Pascal
+      area: Mathématiques, Physique, Informatique, Sciences de l'ingénieur
+      start_date: 2019
+      end_date: 2022
+      location: Clermont-Ferrand, France
+      summary: 'Classes préparatoires aux Grandes Écoles (CPGE), MPSI'
+
+    - institution: Lycée Niepce
+      area: Science
+      date: 2019
+      location: Chalon-sur-Saône, France
+      summary: 'Baccalauréat français'
+
+  skills:
+    - label: Expertise avancée
+      details: 'Rocq, Ada/SPARK, OCaml, Python'
+    - label: Compétences intermédiaires
+      details: 'C++, Cuda, PyTorch, Docker, Git, GitLab-CI, Unity/C#, C, Haskell, Rust, Développement Web, Java'
+    - label: Langues
+      details: 'Anglais (Cambridge C1 Advanced), Français (langue maternelle)'
+
+  extracurricular_activities:
+    - bullet: 'Programmation compétitive, finaliste [Prologin](https://prologin.org/) en 2022'
+    - bullet: "Organisateur de randonnées d'une semaine pour 10 à 20 personnes chaque été (2020-2023)"
