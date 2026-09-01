@@ -11,7 +11,8 @@ cv:
     {% endfor %}
 
   sections:
-    education:
+    {% set sec_education = 'education' if lang == 'en' else 'formation' %}
+    {{ sec_education }}:
       {% for edu in sections.education %}
       - institution: '{{ edu.institution }}'
         area: {{ edu.area }}
@@ -24,7 +25,8 @@ cv:
         highlights: {{ edu.highlights | default('') }}
       {% endfor %}
 
-    experience:
+    {% set sec_experience = 'experience' if lang == 'en' else 'expériences' %}
+    {{ sec_experience }}:
       {% for exp in sections.experience %}
       - company: '{{ exp.company }}{% if exp.repository %} ([Repo]({{ exp.repository }})){% endif %}'
         position: {{ exp.position }}
@@ -36,7 +38,8 @@ cv:
         highlights: {{ exp.highlights | default('') }}
       {% endfor %}
 
-    projects:
+    {% set sec_projects = 'projects' if lang == 'en' else 'projets' %}
+    {{ sec_projects }}:
       {% for project in sections.projects %}
       - name: '{{ project.name }}{% if project.repository %} ([Repo]({{ project.repository }})){% endif %}'
         date: {{ project.date | default('') }}
@@ -47,17 +50,21 @@ cv:
         highlights: {{ project.highlights | default('') }}
       {% endfor %}
 
-    skills:
+    {% set sec_skills = 'skills' if lang == 'en' else 'compétences' %}
+    {{ sec_skills }}:
       {% for skill in sections.skills %}
       - label: {{ skill.label }}
         details: {{ skill.details }}
       {% endfor %}
 
-    extracurricular_activities:
+    {% set sec_extracurricular = 'extracurricular_activities' if lang == 'en' else 'activités_extrascolaires' %}
+    {{ sec_extracurricular }}:
       {% for activity in sections.extracurricular_activities %}
       - bullet: {{ activity.bullet }}
       {% endfor %}
 
+locale:
+  language: {{ 'french' if lang == 'fr' else 'english' }}
 design:
   theme: classic
   colors:
