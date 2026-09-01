@@ -18,6 +18,19 @@ def build_yml(config: Config, infos):
     env.filters['to_nice_yaml'] = lambda value, indent=0: yaml.dump(
         value, default_flow_style=False, allow_unicode=True, indent=indent
     )
+    def to_yml_scalar(value):
+        if value is None or value == '':
+            return ''
+        s = yaml.safe_dump(
+            value,
+            default_flow_style=False,
+            allow_unicode=True,
+            width=10**6,
+        )
+        if s.endswith('\n...\n'):
+            s = s[:-len('\n...\n')]
+        return s
+    env.filters['to_yml_scalar'] = to_yml_scalar
     template = env.get_template(config.yml_template_file)
     rendered = template.render(lang=config.lang, **infos)
     return rendered
