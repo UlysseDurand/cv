@@ -1,23 +1,23 @@
 <template>
-  <div class="cv-row" :style="{ marginBottom: '0.2em' }">
+  <div class="row" :style="{ marginBottom: '0.2em' }">
     <!-- Item image (optional) -->
-    <div class="cv-img-proj" v-if="img">
+    <div class="img-proj" v-if="img">
       <img :src="resolvedImg" alt="Item image" />
     </div>
 
-    <div class="cv-proj" :style="{ padding: '0.2em' }">
+    <div class="proj" :style="{ padding: '0.2em' }">
       <!-- Name + Location row -->
-      <div class="cv-flushleftright">
-        <span class="cv-flushleft" style="margin-bottom: 0.2em">
+      <div class="flushleftright">
+        <span class="flushleft" style="margin-bottom: 0.2em">
           <strong v-html="mdLinksToHtml(name)"></strong>
         </span>
-        <span class="cv-flushright">{{ location }}</span>
+        <span class="flushright">{{ location }}</span>
       </div>
 
       <!-- Summary + Date row -->
-      <div class="cv-flushleftright">
-        <span class="cv-flushleft"> <span v-html="mdLinksToHtml(summary)"></span> </span>
-        <span class="cv-flushright">
+      <div class="flushleftright">
+        <span class="flushleft"> <span v-html="mdLinksToHtml(summary)"></span> </span>
+        <span class="flushright">
           <template v-if="date">
             {{ date }}
           </template>
@@ -29,14 +29,14 @@
       </div>
 
       <!-- Links row (optional) -->
-      <div class="cv-links" v-if="sortedLinks.length > 0">
+      <div class="links" v-if="sortedLinks.length > 0">
         <a
           v-for="link in sortedLinks"
           :key="link.url"
           :href="link.url"
           target="_blank"
           rel="noopener noreferrer"
-          class="cv-link"
+          class="link"
         >
           <p>{{ link.label }}</p>
         </a>
@@ -110,5 +110,113 @@ const sortedLinks = computed(() => {
 </script>
 
 <style scoped>
-/* Styles are in the global theme style.css */
+
+.row {
+    margin-left: 32px;
+    margin-right: 32px;
+    margin-top: 16px;
+    padding: 8px;
+    border-radius: 6px;
+    background-color: var(--bg);
+    overflow: hidden;
+
+    display: flex;
+    justify-content: space-between;
+    gap: 1em;
+    align-items: stretch;
+}
+
+.img-proj {
+    height: 10rem;
+    width: 10rem;
+    order: 2;
+}
+
+.img-proj img {
+    max-width: 100%;
+    max-height: 100%;
+    aspect-ratio: 1/1;
+    border-radius: 4px;
+}
+
+.proj {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex: 1;
+    min-height: 100%;
+}
+
+.flushleftright {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.flushleft {
+    font-family: sans-serif;
+    text-align: left;
+    margin-bottom: 16px;
+}
+
+.flushright {
+    text-align: right;
+    min-width: 5em;
+}
+
+.links {
+    display: flex;
+    margin-top: auto;
+}
+
+a.link {
+    font-size: 1rem;
+    margin: 0 0.3em;
+    padding: 0.5em;
+    border: none;
+    cursor: pointer;
+    flex: 1;
+    text-align: center;
+    align-items: center;
+    font-weight: 5px;
+    border-radius: 2px;
+    background-color: var(--button-color);
+}
+
+.link:after {
+    content: ""
+}
+
+.link * {
+    margin-left: 0px;
+    margin-bottom: 0px;
+    margin-top: 0px;
+    color: black;
+}
+
+.link:hover * {
+    color: white;
+}
+
+.banner {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2em;
+}
+
+.banner a {
+    background-color: var(--head-foot-color);
+    font-size: 1rem;
+    padding: 1rem;
+    border: none;
+    cursor: pointer;
+    flex: 1;
+    text-align: center;
+    color: inherit;
+    text-decoration: none;
+}
+
+.banner a:hover {
+    background-color: var(--hover-color);
+}
 </style>

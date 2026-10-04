@@ -63,12 +63,13 @@ variable at build time (it defaults to `/`, and is normalized to start and end
 with `/`):
 
 ```sh
-VITEPRESS_BASE=/cv/ npm run docs:build
+VITEPRESS_BASE=/some/path/ npm run docs:build
 ```
 
-The GitHub Actions workflow sets it to `/<${{ github.event.repository.name }}>/`,
-so the site keeps working if the repository is renamed, and any other server
-just passes its own path.
+The GitHub Actions workflow sets it to `/`, because the site is served from the
+root of the custom domain (`uldr.fr`). The domain itself is declared in
+`docs/public/CNAME`, which VitePress copies into the build output. Any other
+server just passes its own path.
 
 Project images are stored as site-relative paths (`/repos_images/*.png`) in
 `build/infos.localized.yml` and prefixed with the configured base in the Vue

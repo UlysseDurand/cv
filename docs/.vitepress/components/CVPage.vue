@@ -32,7 +32,7 @@ const infos = computed(() => infosByLang[props.lang] || {})
 
 const education = computed(() =>
   (infos.value.sections.education || []).map((e) => ({
-    name: `${e.area}${e.institution ? `, ${e.institution}` : ''}`,
+    name: `${e.institution ? `${e.institution}, ` : ''}${e.area}`,
     summary: e.summary,
     location: e.location,
     start_date: e.start_date,
@@ -45,7 +45,7 @@ const education = computed(() =>
 
 const experience = computed(() =>
   (infos.value.sections.experience || []).map((e) => ({
-    name: e.position || e.company,
+    name: `${e.company}, ${e.position}`,
     summary: e.summary,
     location: e.location,
     start_date: e.start_date,
@@ -80,12 +80,17 @@ const github = computed(() => {
 <template>
   <header class="intro">
     <h1 class="name">ULYSSE DURAND</h1><br />
-    <h2 class="title">CURRICULUM</h2><br />
+    <h2 class="title">{{ props.lang === 'fr' ? 'Curriculum Vitae' : 'Resume' }}</h2><br />
     <p class="about">
       {{ infos.desc }} <br />
       {{ infos.desc2 }}
     </p>
   </header>
+
+  <p>
+    {{ props.lang === 'fr' ? 'Télécharger le' : 'Download the' }}
+    <a :href="`/${props.lang}/Ulysse_Durand_CV.pdf`">PDF</a>
+  </p>
 
   <h2>{{ labels.contact }}</h2>
 

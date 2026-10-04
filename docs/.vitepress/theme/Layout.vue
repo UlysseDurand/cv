@@ -41,3 +41,32 @@ const languages = [
     </p>
   </footer>
 </template>
+
+<style scoped>
+
+.lang-switch {
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.5em;
+    padding: 1em 0;
+}
+
+.lang-link {
+    padding: 0.3em 0.8em;
+    border-radius: 4px;
+    background-color: var(--head-foot-color);
+    font-family: Montserrat, sans-serif;
+    font-weight: 600;
+    color: var(--link);
+}
+
+.lang-link::after {
+    content: "";
+}
+
+.lang-link.active {
+    background-color: var(--accent);
+    color: white;
+}
+
+</style>

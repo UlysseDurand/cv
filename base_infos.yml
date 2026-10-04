@@ -5,8 +5,8 @@ phone: "+33 6 26 04 50 07"
 website: https://uldr.fr
 location: Villeurbanne
 desc: Looking for a Software Engineer or Research Engineer job
-desc_fr: À la recherche d'un poste d'ingénieur logiciel ou recherche
-desc2: My fields of interest are Formal Proof, and Computational Geometry
+desc_fr: À la recherche d'un poste d'ingénieur logiciel ou ingénieur de recherche
+desc2: My fields of interest are Formal Proof and Computational Geometry
 desc2_fr: Mes domaines d'intérêt sont la preuve formelle et la géométrie algorithmique
 social_networks:
   - network: GitHub
@@ -33,7 +33,7 @@ sections:
       summary: '[Double Masters Degree with Centrale Lyon](https://www.ens-lyon.fr/en/studies/academic-programs/joint-diplomas/double-degree-ecole-centrale-de-lyon-engineering-research)'
       summary_fr: '[Double diplôme avec Centrale Lyon](https://www.ens-lyon.fr/en/studies/academic-programs/joint-diplomas/double-degree-ecole-centrale-de-lyon-engineering-research)'
 
-    - institution: "[Ecole Normale Supérieure Lyon](https://informatique.ens-lyon.fr/en/academic-programs/l3)"
+    - institution: "[Ecole Normale Supérieure de Lyon](https://informatique.ens-lyon.fr/en/academic-programs/l3)"
       area: Fundamental Computer Science
       area_fr: Informatique fondamentale
       start_date: 2022
@@ -48,8 +48,8 @@ sections:
       start_date: 2019
       end_date: 2022
       location: Clermont-Ferrand, France
-      summary: 'Preparatory Classes ( French CPGE), MPSI'
-      summary_fr: 'Classes préparatoires aux Grandes Écoles (CPGE), MPSI'
+      summary: 'Preparatory Classes ( French CPGE), MPSI, MP*'
+      summary_fr: 'Classes préparatoires aux Grandes Écoles (CPGE), MPSI, MP*'
 
     - institution: Lycée Niepce
       area: Science

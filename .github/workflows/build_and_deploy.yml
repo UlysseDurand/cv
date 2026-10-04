@@ -45,9 +45,9 @@ jobs:
 
       - name: Build docs site
         env:
-          # Serve under the repo subpath (e.g. `/cv/`), so the site keeps
-          # working if the repository is renamed or deployed to another server.
-          VITEPRESS_BASE: /${{ github.event.repository.name }}/
+          # The custom domain (uldr.fr) serves the site at the root, so the
+          # base is `/` regardless of the repository name.
+          VITEPRESS_BASE: /
         run: npm run docs:build
       
       - name: Prepare public directory
