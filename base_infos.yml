@@ -1,7 +1,13 @@
 name: Ulysse Durand
 email: ulysse.durand@ens-lyon.fr
-phone: +33 6 26 04 50 07
+email_display: ulysse.durand [at] ens-lyon.fr
+phone: "+33 6 26 04 50 07"
 website: https://uldr.fr
+location: Villeurbanne
+desc: Looking for a Software Engineer or Research Engineer job
+desc_fr: À la recherche d'un poste d'ingénieur logiciel ou recherche
+desc2: My fields of interest are Formal Proof, and Computational Geometry
+desc2_fr: Mes domaines d'intérêt sont la preuve formelle et la géométrie algorithmique
 social_networks:
   - network: GitHub
     username: UlysseDurand
@@ -11,46 +17,61 @@ sections:
 
     - institution: "[Ecole Centrale Lyon](https://www.ec-lyon.fr/en/academics/general-engineering)"
       area: General Engineering & Software Development
+      area_fr: Ingénieur généraliste option informatique
       start_date: 2024
       end_date: 2026
-      location: Ecully, France
+      location: Ecully
       summary: '[Double Masters Degree with ENS Lyon](https://www.ens-lyon.fr/en/studies/academic-programs/joint-diplomas/double-degree-ecole-centrale-de-lyon-engineering-research)'
+      summary_fr: "[Double diplôme avec l'Ecole Normale Supérieure de Lyon](https://www.ens-lyon.fr/en/studies/academic-programs/joint-diplomas/double-degree-ecole-centrale-de-lyon-engineering-research)"
 
-    - institution: "[ENS Lyon](https://informatique.ens-lyon.fr/en/academic-programs/master/m1)"
+    - institution: "[Ecole Normale Supérieure de Lyon](https://informatique.ens-lyon.fr/en/academic-programs/master/m1)"
       area: Computer Science
+      area_fr: Informatique
       start_date: 2023
       end_date: 2026
-      location: Lyon, France
+      location: Lyon
       summary: '[Double Masters Degree with Centrale Lyon](https://www.ens-lyon.fr/en/studies/academic-programs/joint-diplomas/double-degree-ecole-centrale-de-lyon-engineering-research)'
+      summary_fr: '[Double diplôme avec Centrale Lyon](https://www.ens-lyon.fr/en/studies/academic-programs/joint-diplomas/double-degree-ecole-centrale-de-lyon-engineering-research)'
 
-    - institution: "[ENS Lyon](https://informatique.ens-lyon.fr/en/academic-programs/l3)"
+    - institution: "[Ecole Normale Supérieure Lyon](https://informatique.ens-lyon.fr/en/academic-programs/l3)"
       area: Fundamental Computer Science
+      area_fr: Informatique fondamentale
       start_date: 2022
       end_date: 2023
-      location: Lyon, France
+      location: Lyon
       summary: 'Bachelor Degree'
+      summary_fr: 'Licence 3'
 
     - institution: CPGE Blaise Pascal
       area: Mathematics, Physics, Computer Science, Engineering
+      area_fr: Mathématiques, Physique, Informatique, Sciences de l'ingénieur
       start_date: 2019
       end_date: 2022
       location: Clermont-Ferrand, France
-      summary: 'Preparatory Classes for Elite Schools (CPGE), MPSI'
+      summary: 'Preparatory Classes ( French CPGE), MPSI'
+      summary_fr: 'Classes préparatoires aux Grandes Écoles (CPGE), MPSI'
 
     - institution: Lycée Niepce
       area: Science
       date: 2019 
       location: Chalon-sur-Saône, France
       summary: 'French Baccalaureate'
+      summary_fr: 'Baccalauréat'
 
   skills:
     - label: Advanced expertise
+      label_fr: Expertise avancée
       details: 'Rocq, Ada/SPARK, OCaml, Python'
     - label: Normal expertise
+      label_fr: Expertise normale
       details: 'C++, Cuda, PyTorch, Docker, Git, GitLab-CI, Unity/C#, C, Haskell, Rust, Web Development, Java'
     - label: Languages
-      details: 'English (Cambridge C1 Advanced), French(native)'
+      label_fr: Langues
+      details: 'English (Cambridge C1 Advanced), French(native), Spanish (B2)'
+      details_fr: 'Anglais (Cambridge C1 Advanced), Espagnol (B2)'
 
   extracurricular_activities:
     - bullet: 'Competitive Programming, [Prologin](https://prologin.org/) finalist in 2022'
+      bullet_fr: 'Programmation compétitive, finaliste [Prologin](https://prologin.org/) en 2022'
     - bullet: 'Organizer of week long hike tours for 10 to 20 persons every summer (2020-2023)'
+      bullet_fr: "Organisateur de randonnées d'une semaine pour 10 à 20 personnes chaque été (2020-2023)"

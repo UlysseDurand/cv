@@ -20,32 +20,42 @@ jobs:
         with:
           python-version: '3.12.11'
       
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: 'npm'
+
+      - name: Install Node dependencies
+        run: npm ci
+
       - name: Upgrade pip
         run: pip install --upgrade pip
       
       - name: Install dependencies
         run: pip install -r requirements.txt
       
-      - name: Run build script (English)
+      - name: Run tests
+        run: python -m unittest discover -s tests
+
+      - name: Run build script
         env:
             GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: python src/main.py --lang en
-      
-      - name: Run build script (French)
-        env:
-            GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: python src/main.py --lang fr
+        run: python -m src.main
+
+      - name: Build docs site
+        run: npm run docs:build
       
       - name: Prepare public directory
         run: |
           mkdir -p public
-          cp -r build/rendercv_output/* public/
-          cp build/cv.html public/index.html
-          
-          mkdir -p public/fr
-          cp build/rendercv_output_fr/* public/fr/
-          cp build/cv_fr.html public/fr/index.html
-          
+          # The VitePress CV site owns the root: `/` is French, `/en/` is English.
+          cp -r docs/.vitepress/dist/. public/
+
+          # PDF renderings live alongside, under the locale paths: `/en/` and `/fr/`.
+          cp build/rendercv_output/Ulysse_Durand_CV.pdf public/en/Ulysse_Durand_CV.pdf
+          cp build/rendercv_output_fr/Ulysse_Durand_CV.pdf public/fr/Ulysse_Durand_CV.pdf
+
           cp -r build/repos_images public/
       
       - name: Upload Pages artifact

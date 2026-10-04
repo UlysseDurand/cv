@@ -1,0 +1,1 @@
+<CVPage lang="fr" />

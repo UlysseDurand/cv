@@ -1,24 +1,24 @@
-from github_scraper import retrieve_gh_star_list, retrieve_multiple_repos_graphql
+from .github_scraper import (
+    retrieve_gh_star_list,
+    retrieve_multiple_repos_graphql,
+)
 import yaml
 import os
 import time
 import requests
 from pathlib import Path
-from config import Config
 
-IMAGES_DOWNLOAD_DIR = Path("build/repos_images")
-IMAGES_SERVE_SUFFIX = "repos_images"
+from .config import Config
 
 
 class ImageCacheMaker:
     """Downloads remote images to make the page serve them itself"""
 
-    _img_id = 0
-
-    def __init__(self, download_dir: Path, serve_url_suffix_base: str):
-        """download_dir must be served at serve_url_suffix_base"""
+    def __init__(self, download_dir: Path, serve_url: str):
+        """download_dir must be served at serve_url"""
         self._download_dir = download_dir
-        self._serve_url_suffix_base = serve_url_suffix_base
+        self._serve_url = serve_url.rstrip("/")
+        self._img_id = 0
 
     def download(self, url: str, fallback_url: str = None):
         local_path = self._download_dir / f"{self._img_id}.png"
@@ -29,9 +29,9 @@ class ImageCacheMaker:
                 raise
             print(f"    Falling back to {fallback_url}")
             download_remote_image(fallback_url, local_path)
-        serve_url_suffix = f"{self._serve_url_suffix_base}/{self._img_id}.png"
+        serve_url = f"{self._serve_url}/{self._img_id}.png"
         self._img_id += 1
-        return "https://ulyssedurand.github.io/cv/"+serve_url_suffix
+        return serve_url
 
 
 def download_remote_image(remote_url: str, local_path: str, max_retries: int = 5):
@@ -63,53 +63,41 @@ def download_remote_image(remote_url: str, local_path: str, max_retries: int = 5
     )
 
 
-def apply_lang(infos_yml, lang):
-    if lang == "fr":
-        for key in list(infos_yml.keys()):
-            if key.endswith("_fr"):
-                base_key = key[:-3]
-                infos_yml[base_key] = infos_yml[key]
-    return infos_yml
-
-
-def retrieve_yml_infos(infos, image_cache_maker, lang):
+def retrieve_yml_infos(infos, image_cache_maker):
     yml_infos_str = infos.get("infos_yml", "")
     if yml_infos_str is None:
         return {}
     else:
         infos_yml = yaml.safe_load(yml_infos_str["text"])
-        infos_yml["repository"] = f"https://github.com/{infos["nameWithOwner"]}"
         infos_yml["remoteImage"] = infos["openGraphImageUrl"]
         fallback_url = f"https://opengraph.githubassets.com/1/{infos["nameWithOwner"]}"
         infos_yml["img"] = image_cache_maker.download(infos["openGraphImageUrl"], fallback_url)
         infos_yml["name"] = infos["description"]
-        for release_tag in ["report", "slides"]:
+        infos_yml["links"] = {"Repository": f"https://github.com/{infos["nameWithOwner"]}"} | infos_yml.get("links", {})
+        for release_tag in ["Report", "Slides"]:
             release = infos[release_tag]
             if release is not None:
                 for asset in release["releaseAssets"]["nodes"]:
-                    infos_yml[release_tag] = asset["downloadUrl"]
-        infos_yml = apply_lang(infos_yml, lang)
+                    infos_yml["links"][release_tag] = asset["downloadUrl"]
         return infos_yml
 
 def sort_key(entry):
     return str(entry.get("end_date") or entry.get("date") or entry.get("start_date") or "")
 
 def fetch_cv_infos(config: Config):
-    url = "https://github.com/stars/UlysseDurand/lists/curriculum"
-    gh_projects = retrieve_gh_star_list(url)
-    infos = retrieve_multiple_repos_graphql(gh_projects, {"infos_yml": "infos.yml"}, {"report": ("report", "report.pdf"), "slides": ("slides", "slides.pdf")})
+    gh_projects = retrieve_gh_star_list(config.star_list_url)
+    infos = retrieve_multiple_repos_graphql(
+        gh_projects, config.additional_files, config.release_tags
+    )
     experiences = []
     projects = []
-    image_cache_maker = ImageCacheMaker(IMAGES_DOWNLOAD_DIR, IMAGES_SERVE_SUFFIX)
-    os.makedirs(IMAGES_DOWNLOAD_DIR, exist_ok=True)
+    image_cache_maker = ImageCacheMaker(config.images_dir, config.images_serve_url)
+    os.makedirs(config.images_dir, exist_ok=True)
     for _, repo_data in infos.items():
-        infos_yml = retrieve_yml_infos(repo_data, image_cache_maker, config.lang)
+        infos_yml = retrieve_yml_infos(repo_data, image_cache_maker)
         if "company" in infos_yml:
             experiences.append(infos_yml)
-            if config.lang == "fr":
-                infos_yml["summary"] = infos_yml.get("summary") or infos_yml["name"]
-            else:
-                infos_yml["summary"] = infos_yml["name"]
+            infos_yml["summary"] = infos_yml["name"]
             del infos_yml["name"]
         elif len(infos_yml) > 0:
             projects.append(infos_yml)
@@ -122,4 +110,4 @@ def fetch_cv_infos(config: Config):
         cv_yml["sections"]["education"].sort(key=sort_key, reverse=True)
     os.makedirs(os.path.dirname(config.fetched_infos_file), exist_ok=True)
     with open(config.fetched_infos_file, "w") as f:
-        yaml.dump(cv_yml, f)
+        yaml.dump(cv_yml, f, allow_unicode=True)

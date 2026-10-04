@@ -1,23 +1,25 @@
-from config import Config, get_config
-from fetcher import fetch_cv_infos
-from renderer import render_cv_from_templates
-import argparse
 import subprocess
 
+from .config import Config, LOCALES, get_config
+from .fetcher import fetch_cv_infos
+from .renderer import render_cv_from_templates
+
+
 def main(config: Config):
-    print(f"Fetching CV infos (lang={config.lang})...")
+    print("Fetching CV infos (all languages)...")
     fetch_cv_infos(config)
     print("Rendering CV from templates...")
     render_cv_from_templates(config)
-    output_folder = f"rendercv_output{'_fr' if config.lang == 'fr' else ''}"
-    subprocess.run(
-        ["rendercv", "render", config.yml_output_file, "--output-folder", output_folder],
-        check=True,
-    )
+    for lang in LOCALES:
+        yml_file = config.rendered_yml_path(lang)
+        # rendercv resolves `--output-folder` relative to the input file's directory.
+        output_folder = config.rendercv_output_dir(lang).relative_to(yml_file.parent)
+        print(f"Rendering {lang} CV with rendercv...")
+        subprocess.run(
+            ["rendercv", "render", str(yml_file), "--output-folder", str(output_folder)],
+            check=True,
+        )
+
 
 if __name__ == '__main__':
-    parser = argparse.ArgumentParser()
-    parser.add_argument("--lang", choices=["en", "fr"], default="en", help="Language for the CV")
-    args = parser.parse_args()
-    config = get_config(lang=args.lang)
-    main(config)
+    main(get_config())
