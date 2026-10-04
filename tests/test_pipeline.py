@@ -4,10 +4,14 @@ import sys
 import unittest
 from pathlib import Path
 
+import yaml
+
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 from src.fetcher import sort_key
 from src.renderer import apply_lang
+
+COURSES_FILE = Path(__file__).resolve().parent.parent / "data" / "courses.yml"
 
 
 class ApplyLangTests(unittest.TestCase):
@@ -38,6 +42,29 @@ class SortKeyTests(unittest.TestCase):
         self.assertEqual(sort_key({"date": 2019}), "2019")
         self.assertEqual(sort_key({"start_date": 2018}), "2018")
         self.assertEqual(sort_key({}), "")
+
+
+class CoursesDataTests(unittest.TestCase):
+    @classmethod
+    def setUpClass(cls):
+        with open(COURSES_FILE, "r") as f:
+            cls.groups = yaml.safe_load(f)["courses"]
+
+    def test_every_course_has_names_in_both_languages(self):
+        for group, data in self.groups.items():
+            for course in data["courses"]:
+                self.assertTrue(course.get("name_fr"), f"{group}: {course}")
+                self.assertTrue(course.get("name"), f"{group}: {course}")
+
+    def test_teachers_is_a_list_when_present(self):
+        for group, data in self.groups.items():
+            for course in data["courses"]:
+                self.assertIsInstance(course.get("teachers", []), list, f"{group}: {course}")
+
+    def test_course_names_are_unique_within_a_group(self):
+        for group, data in self.groups.items():
+            names = [course["name_fr"] for course in data["courses"]]
+            self.assertEqual(len(names), len(set(names)), group)
 
 
 if __name__ == "__main__":

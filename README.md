@@ -4,7 +4,7 @@ This project is for rendering the CV as a PDF, in both English and French.
 
 ## Build
 
-The build fetches the CV data (base info from `base_infos.yml` plus GitHub
+The build fetches the CV data (base info from `data/base_infos.yml` plus GitHub
 project metadata), writes a single `build/infos.yml` containing both the
 English and French strings, then renders both languages.
 

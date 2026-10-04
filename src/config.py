@@ -10,7 +10,9 @@ LOCALES = ("en", "fr")
 class Config:
     def __init__(self, **kwargs):
         # Inputs
-        self.base_infos_file = Path(kwargs.get("base_infos_file", "base_infos.yml"))
+        self.base_infos_file = Path(kwargs.get("base_infos_file", "data/base_infos.yml"))
+        # Courses taught/attended (rendered on the docs site, not in the PDF).
+        self.courses_file = Path(kwargs.get("courses_file", "data/courses.yml"))
 
         # Generated data shared with the VitePress docs site.
         self.build_dir = Path(kwargs.get("build_dir", "build"))

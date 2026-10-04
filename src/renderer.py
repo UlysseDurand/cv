@@ -33,6 +33,11 @@ def apply_lang(infos, lang):
 def load_infos(config: Config):
     with open(config.fetched_infos_file) as f:
         infos = yaml.safe_load(f)
+    # Courses are authored separately from the fetched CV data and only feed the
+    # docs site. Attaching them here means `apply_lang` resolves their `*_fr`
+    # keys the same way, and they end up in `infos.localized.yml` for free.
+    with open(config.courses_file) as f:
+        infos["courses"] = yaml.safe_load(f)["courses"]
     return infos
 
 

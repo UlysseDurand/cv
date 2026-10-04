@@ -1,0 +1,1 @@
+<CoursesPage lang="fr" />
