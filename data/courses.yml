@@ -3,7 +3,7 @@ courses:
     description_fr: "L3 Informatique Fondamentale ENS Lyon"
     description: "L3 Fundamental Computer Science ENS Lyon"
     location: "ENS Lyon"
-    year: 2022-2023
+    year: "2022-2023"
     courses:
       - name_fr: "Algorithmique 1"
         name: "Algorithms 1"
@@ -58,7 +58,7 @@ courses:
     description_fr: "M1 Informatique concepts et applications"
     description: "M1 Computer Science: Concepts and Applications"
     location: "ENS Lyon"
-    year: 2023-2024
+    year: "2023-2024"
     courses:
       - name_fr: "Projet intégré"
         name: "Project"
@@ -125,7 +125,7 @@ courses:
     description_fr: "Ingénieur généraliste"
     description: "Generalist Engineering"
     location: "Centrale Lyon"
-    year: 2024-2025
+    year: "2024-2025"
     courses:
       - name_fr: "Génie mécanique"
         name: "Mechanical Engineering"
@@ -155,7 +155,7 @@ courses:
     description_fr: "ENS: M2 Informatique Concepts et Applications, ECL: Ingénieur logiciel"
     description: "ENS: M2 Computer Science Concepts and Applications, ECL: Software Engineer"
     location: "ENS Lyon & Centrale Lyon"
-    year: 2025-2026
+    year: "2025-2026"
     courses:
       - name_fr: "Modèles génératifs"
         name: "Generative Modelling"
@@ -214,7 +214,7 @@ courses:
         description: "Ray Tracing, BRDF, Monte-Carlo estimators, Bounding Volume Hierarchy"
         description_fr: "Lancer de rayons, BRDF, estimateurs de Monte-Carlo, hiérarchie de volumes englobants"
         teachers:
-          - "Jean Claude Iehl"
+          - "Jean-Claude Iehl"
       - name_fr: "Technologies Informatique du Big Data"
         name: "Big Data Information Technologies"
       - name_fr: "Apprentissage par renforcement"

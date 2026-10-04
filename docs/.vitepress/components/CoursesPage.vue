@@ -24,18 +24,25 @@ const infos = computed(() => infosByLang[props.lang] || {})
 // Each group is a degree (e.g. L3, M1 ENS) with its own description, location
 // and year, plus the list of courses it contains.
 const groups = computed(() =>
-  Object.entries(infos.value.courses || {}).map(([key, group]) => ({
-    key,
-    heading: group.description || '',
-    location: group.location || '',
-    year: group.year || '',
-    courses: (group.courses || []).map((course) => ({
-      name: course.name,
-      description: course.description || '',
-      teachers: course.teachers || [],
-      links: course.links || {},
-    })),
-  }))
+  Object.entries(infos.value.courses || {})
+    .sort(([, a], [, b]) => {
+      const yearA = a.year || ''
+      const yearB = b.year || ''
+      // newest first
+      return yearB.localeCompare(yearA, undefined, { numeric: true })
+    })
+    .map(([key, group]) => ({
+      key,
+      heading: group.description || '',
+      location: group.location || '',
+      year: group.year || '',
+      courses: (group.courses || []).map((course) => ({
+        name: course.name,
+        description: course.description || '',
+        teachers: course.teachers || [],
+        links: course.links || {},
+      })),
+    }))
 )
 </script>
 
