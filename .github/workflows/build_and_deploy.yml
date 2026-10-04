@@ -44,6 +44,10 @@ jobs:
         run: python -m src.main
 
       - name: Build docs site
+        env:
+          # Serve under the repo subpath (e.g. `/cv/`), so the site keeps
+          # working if the repository is renamed or deployed to another server.
+          VITEPRESS_BASE: /${{ github.event.repository.name }}/
         run: npm run docs:build
       
       - name: Prepare public directory

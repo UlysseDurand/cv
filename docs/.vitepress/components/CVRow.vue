@@ -2,7 +2,7 @@
   <div class="cv-row" :style="{ marginBottom: '0.2em' }">
     <!-- Item image (optional) -->
     <div class="cv-img-proj" v-if="img">
-      <img :src="img" alt="Item image" />
+      <img :src="resolvedImg" alt="Item image" />
     </div>
 
     <div class="cv-proj" :style="{ padding: '0.2em' }">
@@ -47,6 +47,7 @@
 
 <script setup>
 import { computed } from 'vue'
+import { withBase } from 'vitepress'
 import { mdLinksToHtml } from '../theme/utils'
 
 const props = defineProps({
@@ -84,6 +85,12 @@ const props = defineProps({
     default: () => [],
   },
 })
+
+// Resolve site-relative image paths against the configured base, leaving
+// absolute (http/https) URLs untouched.
+const resolvedImg = computed(() =>
+  /^https?:\/\//.test(props.img || '') ? props.img : withBase(props.img)
+)
 
 const sortedLinks = computed(() => {
   const priorityOrder = ['Repository', 'Report', 'Slides']

@@ -55,3 +55,21 @@ pre-resolved data.
 When deploying, the VitePress output (`docs/.vitepress/dist`) owns the site
 root, and the rendercv PDFs are published under the locale paths:
 `/en/Ulysse_Durand_CV.pdf` (English) and `/fr/Ulysse_Durand_CV.pdf` (French).
+
+### Base URL
+
+The site works under any base path. Set the `VITEPRESS_BASE` environment
+variable at build time (it defaults to `/`, and is normalized to start and end
+with `/`):
+
+```sh
+VITEPRESS_BASE=/cv/ npm run docs:build
+```
+
+The GitHub Actions workflow sets it to `/<${{ github.event.repository.name }}>/`,
+so the site keeps working if the repository is renamed, and any other server
+just passes its own path.
+
+Project images are stored as site-relative paths (`/repos_images/*.png`) in
+`build/infos.localized.yml` and prefixed with the configured base in the Vue
+layer (`CVRow.vue` via `withBase`), so they follow the base automatically.

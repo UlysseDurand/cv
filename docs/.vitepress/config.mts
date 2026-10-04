@@ -43,7 +43,22 @@ function infosPlugin() {
 }
 
 // https://vitepress.dev/reference/site-config
+
+// Base URL path the site is served under. Override with the VITEPRESS_BASE
+// environment variable, e.g. `VITEPRESS_BASE=/my/path/ npm run docs:build`.
+// Defaults to "/" (site at the domain root). VitePress requires the base to
+// start and end with a slash, so we normalize it.
+function normalizeBase(raw: string): string {
+  let base = raw.trim()
+  if (!base.startsWith('/')) base = '/' + base
+  if (!base.endsWith('/')) base += '/'
+  return base
+}
+
+const base = normalizeBase(process.env.VITEPRESS_BASE ?? '/')
+
 export default defineConfig({
+  base,
   title: "Ulysse DURAND",
   description: "Ulysse DURAND's Curriculum",
   rewrites: {

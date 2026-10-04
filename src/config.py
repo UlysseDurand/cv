@@ -36,9 +36,11 @@ class Config:
         )
 
         # Image cache: remote images are downloaded locally and served by the site.
+        # The default is a site-relative path so the images follow whatever base
+        # URL the site is deployed under (the Vue layer prefixes it via `withBase`).
         self.images_dir = Path(kwargs.get("images_dir", self.build_dir / "repos_images"))
         self.images_serve_url = kwargs.get(
-            "images_serve_url", "https://ulyssedurand.github.io/cv/repos_images"
+            "images_serve_url", "/repos_images"
         )
 
     def _suffixed(self, stem: str, lang: str) -> Path:
